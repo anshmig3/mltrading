@@ -1,0 +1,51 @@
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
+# Database
+DB_PATH = os.getenv("DB_PATH", str(BASE_DIR / "data" / "stock_signal.db"))
+
+# Robinhood
+RH_USERNAME = os.getenv("RH_USERNAME", "")
+RH_PASSWORD = os.getenv("RH_PASSWORD", "")
+
+# Claude API
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+CLAUDE_MODEL = "claude-sonnet-4-6"
+AGENT_PROMPT_VERSION = "1.0"
+
+# Market hours (ET)
+MARKET_OPEN_HOUR = 9
+MARKET_OPEN_MINUTE = 30
+MARKET_CLOSE_HOUR = 16
+MARKET_CLOSE_MINUTE = 0
+
+# Polling
+POLL_INTERVAL_SECONDS = 300
+OUTSIDE_HOURS_CHECK_SECONDS = 60
+
+# ML thresholds
+DEFAULT_UP_THRESHOLD = 0.60
+DEFAULT_DOWN_THRESHOLD = 0.60
+LABEL_PCT_THRESHOLD = 0.02
+LABEL_HORIZON_CANDLES = 4
+MIN_TRAINING_SAMPLES = 500
+
+# NLP agent
+NLP_TIMEOUT_SECONDS = 10
+OPENING_SUPPRESS_MINUTES = 15
+MIN_PRECISION_THRESHOLD = 0.45
+HIGH_STREAK_THRESHOLD = 5
+ATR_HIGH_PERCENTILE = 0.90
+ATR_HIGH_MIN_CONFIDENCE = 0.70
+
+# API
+API_HOST = os.getenv("API_HOST", "0.0.0.0")
+API_PORT = int(os.getenv("API_PORT", "8000"))
+
+# Daily Claude API budget (max calls per day, 0 = unlimited)
+DAILY_CLAUDE_BUDGET = int(os.getenv("DAILY_CLAUDE_BUDGET", "0"))
+
+# Model retention
+MODEL_RETENTION_DAYS = 90

@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+node_modules/
+stock_signal/dashboard/dist/
+stock_signal/data/stock_signal.db
+stock_signal/ml/models/*.pkl
+__pycache__/
+*.pyc
+.env
